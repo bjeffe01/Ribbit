@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
 
         // Assign objects to IDs
@@ -66,11 +68,11 @@ public class LoginActivity extends Activity {
 
                 } else {
                     // Login
-                    //                   setProgressBarIndeterminateVisibility(true);
+                    setProgressBarIndeterminateVisibility(true);
                     ParseUser.logInInBackground(username, password, new LogInCallback() {
                         @Override
                         public void done(ParseUser user, ParseException e) {
-//                            setProgressBarIndeterminateVisibility(false);
+                            setProgressBarIndeterminateVisibility(false);
                             if (e == null) {
                                 // Hooray! The user is logged in.
                                 Intent intent = new Intent(LoginActivity.this, MyActivity.class);
@@ -110,9 +112,5 @@ public class LoginActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         return id == R.id.action_settings || super.onOptionsItemSelected(item);
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
     }
 }
