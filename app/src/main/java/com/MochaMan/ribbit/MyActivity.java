@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
@@ -36,6 +37,7 @@ public class MyActivity extends FragmentActivity implements ActionBar.TabListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_my);
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
@@ -108,6 +110,9 @@ public class MyActivity extends FragmentActivity implements ActionBar.TabListene
         if (id == R.id.action_logout) {
             ParseUser.logOut();
             navigateToLogin();
+        } else if (id == R.id.action_edit_friends) {
+            Intent intent = new Intent(this,EditFriendsActivity.class);
+            startActivity(intent);
         }
 
         return id == R.id.action_settings || super.onOptionsItemSelected(item);

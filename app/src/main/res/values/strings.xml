@@ -23,4 +23,9 @@
     <string name="password_reset_button_label">Reset Password</string>
     <string name="empty_inbox_label">No new messages.  Now go do something with your life!</string>
     <string name="empty_friends_label">You have no friends.  Sorry.</string>
+    <string name="menu_edit_friends_label">Edit Friends</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="error_title">We\'re sorry!</string>
+
 </resources>
